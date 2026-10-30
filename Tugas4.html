@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ekskul Voli - SMK Bina Putra Mandiri</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* =========================
+           LOADING SCREEN
+        ========================= */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #0062ff, #001f6b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            z-index: 99999;
+            transition: opacity 0.8s ease,
+                        visibility 0.8s ease;
+        }
+
+        #loading-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            animation: fadeIn 1s ease;
+        }
+
+        .loading-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .loading-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .volleyball {
+            font-size: 70px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .loading-bar {
+            width: 250px;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 25px auto 0;
+        }
+
+        .loading-progress {
+            height: 100%;
+            width: 0;
+            background: white;
+            animation: loading 2.5s forwards;
+        }
+
+        @keyframes loading {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 90vh;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+        .section-title {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        /* =========================
+           CARD
+        ========================= */
+        .card {
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        }
+
+        .card img {
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .icon-box {
+            font-size: 50px;
+        }
+
+        /* =========================
+           STATISTIK
+        ========================= */
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #111827;
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 768px) {
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .loading-content h1 {
+                font-size: 1.7rem;
+            }
+
+            .loading-content p {
+                font-size: 1rem;
+            }
+
+            .volleyball {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================================
+         LOADING SCREEN
+    =================================== -->
+    <div id="loading-screen">
+
+        <div class="loading-content">
+
+            <div class="volleyball">
+                🏐
+            </div>
+
+            <h1>SMK BINA PUTRA MANDIRI</h1>
+
+            <p>
+                Ekstrakurikuler Bola Voli
+            </p>
+
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+
+            <p class="mt-3">
+                Memuat website...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================
+         NAVBAR
+    =================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#">
+                🏐 BINA PUTRA MANDIRI
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beranda">
+                            Beranda
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">
+                            Tentang
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kegiatan">
+                            Kegiatan
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#jadwal">
+                            Jadwal
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">
+                            Kontak
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==================================
+         HERO
+    =================================== -->
+    <section id="beranda" class="hero">
+
+        <div class="container text-center">
+
+            <p class="fw-bold text-warning">
+                SMK BINA PUTRA MANDIRI
+            </p>
+
+            <h1>
+                EKSTRAKURIKULER
+                <br>
+                BOLA VOLI
+            </h1>
+
+            <p class="lead mt-3">
+                Bersama membangun kekompakan,
+                sportivitas, dan prestasi.
+            </p>
+
+            <a
+                href="#tentang"
+                class="btn btn-primary btn-lg mt-3 px-4">
+
+                Kenali Ekskul Kami
+
+            </a>
+
+            <a
+                href="#kontak"
+                class="btn btn-outline-light btn-lg mt-3 px-4">
+
+                Bergabung
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         TENTANG
+    =================================== -->
+    <section id="tentang" class="py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Tentang Ekstrakurikuler
+                </h2>
+
+                <p class="text-muted">
+                    Wadah bagi siswa SMK Bina Putra Mandiri
+                    untuk mengembangkan bakat olahraga bola voli.
+                </p>
+
+            </div>
+
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80"
+                        class="img-fluid rounded shadow"
+                        alt="Permainan bola voli">
+
+                </div>
+
+
+                <div class="col-md-6 mt-4 mt-md-0">
+
+                    <h3>
+                        Latihan, Kekompakan,
+                        dan Prestasi
+                    </h3>
+
+                    <p>
+                        Ekstrakurikuler bola voli SMK Bina Putra Mandiri
+                        merupakan kegiatan untuk mengembangkan kemampuan
+                        siswa dalam olahraga bola voli.
+                    </p>
+
+                    <p>
+                        Tidak hanya berfokus pada kemampuan teknik,
+                        kegiatan ini juga mengajarkan disiplin,
+                        kerja sama, tanggung jawab, sportivitas,
+                        dan rasa percaya diri.
+                    </p>
+
+
+                    <div class="row text-center mt-4">
+
+                        <div class="col-4">
+
+                            <div class="stat-number">
+                                20+
+                            </div>
+
+                            <small>
+                                Anggota
+                            </small>
+
+                        </div>
+
+
+                        <div class="col-4">
+
+                            <div class="stat-number">
+                                2x
+                            </div>
+
+                            <small>
+                                Latihan/Minggu
+                            </small>
+
+                        </div>
+
+
+                        <div class="col-4">
+
+                            <div class="stat-number">
+                                100%
+                            </div>
+
+                            <small>
+                                Semangat
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         KEUNGGULAN
+    =================================== -->
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Apa yang Kami Latih?
+                </h2>
+
+                <p class="text-muted">
+                    Meningkatkan kemampuan individu dan kerja sama tim.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4">
+
+                        <div class="icon-box">
+                            🏐
+                        </div>
+
+                        <h4 class="mt-3">
+                            Teknik Dasar
+                        </h4>
+
+                        <p>
+                            Melatih passing, servis, smash,
+                            blocking, dan teknik dasar bola voli.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4">
+
+                        <div class="icon-box">
+                            🤝
+                        </div>
+
+                        <h4 class="mt-3">
+                            Kerja Sama
+                        </h4>
+
+                        <p>
+                            Membangun komunikasi dan kekompakan
+                            antaranggota dalam sebuah tim.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4">
+
+                        <div class="icon-box">
+                            🏆
+                        </div>
+
+                        <h4 class="mt-3">
+                            Prestasi
+                        </h4>
+
+                        <p>
+                            Mempersiapkan anggota untuk mengikuti
+                            berbagai kompetisi bola voli.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         KEGIATAN
+    =================================== -->
+    <section id="kegiatan" class="py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Kegiatan Kami
+                </h2>
+
+                <p class="text-muted">
+                    Kegiatan rutin ekstrakurikuler bola voli.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=700&q=80"
+                            class="card-img-top"
+                            alt="Latihan voli">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Latihan Rutin
+                            </h5>
+
+                            <p class="card-text">
+                                Latihan teknik dan fisik secara rutin
+                                bersama pelatih dan anggota lainnya.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=700&q=80"
+                            class="card-img-top"
+                            alt="Pertandingan voli">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Pertandingan
+                            </h5>
+
+                            <p class="card-text">
+                                Mengikuti pertandingan persahabatan
+                                maupun kompetisi antarsekolah.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80"
+                            class="card-img-top"
+                            alt="Latihan fisik">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Latihan Fisik
+                            </h5>
+
+                            <p class="card-text">
+                                Meningkatkan stamina, kekuatan,
+                                kelincahan, dan daya tahan tubuh.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         JADWAL
+    =================================== -->
+    <section id="jadwal" class="py-5 bg-light">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Jadwal Latihan
+                </h2>
+
+                <p class="text-muted">
+                    Jadwal kegiatan ekstrakurikuler bola voli.
+                </p>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table
+                    class="table table-bordered table-hover
+                           text-center bg-white shadow-sm">
+
+                    <thead class="table-primary">
+
+                        <tr>
+                            <th>Hari</th>
+                            <th>Waktu</th>
+                            <th>Kegiatan</th>
+                            <th>Tempat</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Selasa
+                            </td>
+
+                            <td>
+                                15.30 - 17.00
+                            </td>
+
+                            <td>
+                                Latihan Teknik
+                            </td>
+
+                            <td>
+                                Lapangan Voli
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Kamis
+                            </td>
+
+                            <td>
+                                15.30 - 17.00
+                            </td>
+
+                            <td>
+                                Latihan Fisik & Game
+                            </td>
+
+                            <td>
+                                Lapangan Voli
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Sabtu
+                            </td>
+
+                            <td>
+                                08.00 - 10.00
+                            </td>
+
+                            <td>
+                                Friendly Match
+                            </td>
+
+                            <td>
+                                Lapangan Sekolah
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         KONTAK
+    =================================== -->
+    <section id="kontak" class="py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Hubungi Kami
+                </h2>
+
+                <p class="text-muted">
+                    Tertarik bergabung dengan ekstrakurikuler voli?
+                </p>
+
+            </div>
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-7">
+
+                    <div class="card shadow border-0">
+
+                        <div class="card-body p-4">
+
+                            <form>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+                                        Nama
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Masukkan nama">
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Masukkan email">
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+                                        Pesan
+                                    </label>
+
+                                    <textarea
+                                        class="form-control"
+                                        rows="4"
+                                        placeholder="Tulis pesan..."></textarea>
+
+                                </div>
+
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary w-100">
+
+                                    Kirim Pesan
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         FOOTER
+    =================================== -->
+    <footer class="py-4 text-center">
+
+        <div class="container">
+
+            <h5>
+                🏐 SMK BINA PUTRA MANDIRI
+            </h5>
+
+            <p class="mb-1">
+                Ekstrakurikuler Bola Voli
+            </p>
+
+            <small>
+                &copy; 2026 SMK Bina Putra Mandiri.
+                All Rights Reserved.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- Loading Screen Script -->
+    <script>
+
+        window.addEventListener("load", function () {
+
+            setTimeout(function () {
+
+                document
+                    .getElementById("loading-screen")
+                    .classList.add("hide");
+
+            }, 2800);
+
+        });
+
+    </script>
+
+</body>
+</html>

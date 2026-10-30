@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ekstrakurikuler | SMK Bina Putra Mandiri</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f8f9fa;
+            color: #212529;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            transition: .3s;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .nav-link:hover {
+            color: #ffc107 !important;
+        }
+
+
+        /* =========================
+           HERO / OPENING
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.88),
+                    rgba(0,0,0,.60),
+                    rgba(0,0,0,.25)
+                ),
+                url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 8px 20px;
+
+            background: #ffc107;
+            color: #111;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+        }
+
+        .hero h1 span {
+            color: #ffc107;
+        }
+
+        .hero p {
+            margin-top: 25px;
+
+            color: #e9ecef;
+
+            font-size: 1.05rem;
+
+            line-height: 1.9;
+        }
+
+        .btn-warning {
+            font-weight: 600;
+
+            padding: 12px 25px;
+
+            border-radius: 50px;
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: #6c757d;
+        }
+
+        .title-line {
+            width: 60px;
+            height: 4px;
+
+            background: #ffc107;
+
+            border-radius: 20px;
+
+            margin: 15px auto;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-img {
+            width: 100%;
+            height: 450px;
+
+            object-fit: cover;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.15);
+        }
+
+        .about-content h2 {
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #6c757d;
+            line-height: 1.9;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .feature-icon {
+            min-width: 50px;
+            height: 50px;
+
+            background: #fff3cd;
+
+            color: #ffc107;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.4rem;
+        }
+
+
+        /* =========================
+           STATISTIC
+        ========================= */
+
+        .stats {
+            background: #212529;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: #ffc107;
+        }
+
+        .stat-item h3 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .stat-item p {
+            color: #adb5bd;
+        }
+
+
+        /* =========================
+           EKSKUL CARD
+        ========================= */
+
+        .ekskul-card {
+            border: none;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background: white;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.08);
+
+            transition: .35s;
+
+            height: 100%;
+        }
+
+        .ekskul-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,.15);
+        }
+
+        .ekskul-card img {
+            width: 100%;
+            height: 220px;
+
+            object-fit: cover;
+        }
+
+        .ekskul-card .card-body {
+            padding: 25px;
+        }
+
+        .ekskul-icon {
+            width: 50px;
+            height: 50px;
+
+            background: #212529;
+
+            color: #ffc107;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.3rem;
+
+            margin-bottom: 15px;
+        }
+
+        .ekskul-card h5 {
+            font-weight: 700;
+        }
+
+        .ekskul-card p {
+            color: #6c757d;
+
+            font-size: .9rem;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================= */
+
+        .accordion-item {
+            background: white;
+
+            border-radius: 15px !important;
+
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            padding: 20px;
+
+            background: white;
+
+            font-size: 1rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #fff3cd;
+
+            color: #212529;
+
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-body {
+            line-height: 1.8;
+        }
+
+        .accordion-body ul {
+            line-height: 2;
+        }
+
+
+        /* =========================
+           GALERI
+        ========================= */
+
+        .gallery-item {
+            overflow: hidden;
+
+            border-radius: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 280px;
+
+            object-fit: cover;
+
+            transition: .4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+
+        /* =========================
+           OUTRO
+        ========================= */
+
+        .outro {
+            min-height: 70vh;
+
+            display: flex;
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.75),
+                    rgba(0,0,0,.75)
+                ),
+                url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+        }
+
+        .outro h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+            font-weight: 800;
+        }
+
+        .outro p {
+            max-width: 700px;
+
+            margin: 20px auto 30px;
+
+            color: #dee2e6;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            padding: 30px 0;
+        }
+
+        footer span {
+            color: #ffc107;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        .fade-up {
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            BINA PUTRA <span>MANDIRI</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#tentang">
+                        Tentang
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#ekskul">
+                        Ekskul
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#informasi">
+                        Informasi
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#galeri">
+                        Galeri
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#kontak">
+                        Kontak
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="container">
+
+        <div class="hero-content fade-up">
+
+            <div class="hero-badge">
+
+                <i class="bi bi-stars"></i>
+
+                EKSTRAKURIKULER SEKOLAH
+
+            </div>
+
+
+            <h1>
+
+                Explore Your
+
+                <span>
+                    Passion.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Selamat datang di website ekstrakurikuler
+
+                <strong>
+                    SMK Bina Putra Mandiri.
+                </strong>
+
+                Temukan bakat, kembangkan kemampuan,
+                bangun karakter, dan raih prestasi
+                bersama ekstrakurikuler sekolah.
+
+            </p>
+
+
+            <a
+                href="#ekskul"
+                class="btn btn-warning mt-3"
+            >
+
+                Jelajahi Ekskul
+
+                <i class="bi bi-arrow-down ms-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TENTANG
+===================================================== -->
+
+<section id="tentang">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=85"
+                    class="about-img"
+                    alt="Kegiatan siswa"
+                >
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <span class="text-warning fw-bold">
+                        TENTANG EKSTRAKURIKULER
+                    </span>
+
+
+                    <h2>
+
+                        Berkembang di luar kelas,
+                        <span class="text-warning">
+                            berprestasi lebih jauh.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Ekstrakurikuler merupakan kegiatan
+                        pengembangan diri yang memberikan kesempatan
+                        kepada siswa untuk mengembangkan minat,
+                        bakat, kreativitas, keterampilan, dan karakter
+                        di luar kegiatan pembelajaran di kelas.
+
+                    </p>
+
+
+                    <p>
+
+                        Melalui kegiatan ekstrakurikuler,
+                        siswa dapat belajar bekerja sama,
+                        bertanggung jawab, disiplin,
+                        percaya diri, serta mengembangkan
+                        kemampuan sesuai minat masing-masing.
+
+                    </p>
+
+
+                    <div class="feature-box">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Kreativitas
+                            </strong>
+
+                            <br>
+
+                            <small class="text-muted">
+                                Mengembangkan ide dan bakat siswa.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-box">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Kerja Sama
+                            </strong>
+
+                            <br>
+
+                            <small class="text-muted">
+                                Belajar bekerja dalam sebuah tim.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-box">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Prestasi
+                            </strong>
+
+                            <br>
+
+                            <small class="text-muted">
+                                Mengembangkan potensi menuju prestasi.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATISTIK
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3 col-6">
+
+                <div class="stat-item">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h3>
+                        100+
+                    </h3>
+
+                    <p>
+                        Siswa Aktif
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6">
+
+                <div class="stat-item">
+
+                    <i class="bi bi-grid-fill"></i>
+
+                    <h3>
+                        8+
+                    </h3>
+
+                    <p>
+                        Pilihan Ekskul
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6">
+
+                <div class="stat-item">
+
+                    <i class="bi bi-award-fill"></i>
+
+                    <h3>
+                        20+
+                    </h3>
+
+                    <p>
+                        Kegiatan
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6">
+
+                <div class="stat-item">
+
+                    <i class="bi bi-stars"></i>
+
+                    <h3>
+                        ∞
+                    </h3>
+
+                    <p>
+                        Peluang Berkembang
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DAFTAR EKSKUL
+===================================================== -->
+
+<section id="ekskul">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="text-warning fw-bold">
+                PILIHAN KEGIATAN
+            </span>
+
+            <h2>
+                Ekstrakurikuler
+            </h2>
+
+            <div class="title-line"></div>
+
+            <p>
+                Pilih kegiatan sesuai dengan minat dan bakatmu.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PRAMUKA -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1000&q=85"
+                        alt="Pramuka"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-compass"></i>
+                        </div>
+
+                        <h5>
+                            Pramuka
+                        </h5>
+
+                        <p>
+                            Membentuk karakter siswa melalui
+                            kegiatan kedisiplinan, kepemimpinan,
+                            kemandirian, kerja sama, dan kegiatan
+                            alam terbuka.
+                        </p>
+
+                        <span class="badge text-bg-success">
+                            Kepemimpinan
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SISPALA -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1000&q=85"
+                        alt="Sispala"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-tree"></i>
+                        </div>
+
+                        <h5>
+                            Sispala / Natbinari
+                        </h5>
+
+                        <p>
+                            Kegiatan pecinta alam yang mengembangkan
+                            keberanian, kemandirian, kerja sama,
+                            serta kepedulian terhadap lingkungan.
+                        </p>
+
+                        <span class="badge text-bg-success">
+                            Pecinta Alam
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASKIBRA -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1000&q=85"
+                        alt="Paskibra"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-flag"></i>
+                        </div>
+
+                        <h5>
+                            Paskibra
+                        </h5>
+
+                        <p>
+                            Melatih kedisiplinan, ketegasan,
+                            kekompakan, tanggung jawab,
+                            dan kemampuan baris-berbaris.
+                        </p>
+
+                        <span class="badge text-bg-danger">
+                            Karakter
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PMR -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85"
+                        alt="PMR"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+
+                        <h5>
+                            PMR
+                        </h5>
+
+                        <p>
+                            Mengenalkan pertolongan pertama,
+                            kesehatan, kepedulian sosial,
+                            dan kegiatan kemanusiaan.
+                        </p>
+
+                        <span class="badge text-bg-danger">
+                            Kesehatan
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEPAK BOLA -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+                        alt="Sepak Bola"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-dribbble"></i>
+                        </div>
+
+                        <h5>
+                            Sepak Bola
+                        </h5>
+
+                        <p>
+                            Mengembangkan kemampuan teknik,
+                            strategi, kebugaran, kerja sama,
+                            dan sportivitas melalui olahraga.
+                        </p>
+
+                        <span class="badge text-bg-warning">
+                            Olahraga
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BULU TANGKIS -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1000&q=85"
+                        alt="Bulu Tangkis"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-circle"></i>
+                        </div>
+
+                        <h5>
+                            Bulu Tangkis
+                        </h5>
+
+                        <p>
+                            Melatih kelincahan, konsentrasi,
+                            koordinasi tubuh, teknik permainan,
+                            dan sportivitas.
+                        </p>
+
+                        <span class="badge text-bg-primary">
+                            Olahraga
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VOLI -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1000&q=85"
+                        alt="Bola Voli"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <h5>
+                            Bola Voli
+                        </h5>
+
+                        <p>
+                            Mengembangkan kemampuan teknik,
+                            komunikasi, kerja sama tim,
+                            dan sportivitas.
+                        </p>
+
+                        <span class="badge text-bg-success">
+                            Olahraga
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PENCAK SILAT -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1000&q=85"
+                        alt="Pencak Silat"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-shield"></i>
+                        </div>
+
+                        <h5>
+                            Pencak Silat
+                        </h5>
+
+                        <p>
+                            Melatih bela diri, kedisiplinan,
+                            keberanian, konsentrasi,
+                            dan pengendalian diri.
+                        </p>
+
+                        <span class="badge text-bg-danger">
+                            Bela Diri
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MARAWIS -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card ekskul-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Marawis"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="ekskul-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+
+                        <h5>
+                            Marawis
+                        </h5>
+
+                        <p>
+                            Mengembangkan kemampuan bermusik,
+                            kreativitas, kekompakan, dan seni
+                            Islami.
+                        </p>
+
+                        <span class="badge text-bg-warning">
+                            Seni
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMASI DETAIL EKSKUL
+===================================================== -->
+
+<section
+    id="informasi"
+    class="bg-light"
+>
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="text-warning fw-bold">
+                INFORMASI EKSTRAKURIKULER
+            </span>
+
+            <h2>
+                Kenali Kegiatan Kami
+            </h2>
+
+            <div class="title-line"></div>
+
+            <p>
+                Informasi mengenai kegiatan dan manfaat
+                setiap ekstrakurikuler.
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="accordion"
+            id="accordionEkskul"
+        >
+
+
+            <!-- PRAMUKA -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoPramuka"
+                    >
+
+                        <i class="bi bi-compass-fill text-warning me-3"></i>
+
+                        Pramuka
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoPramuka"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Pramuka
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Pramuka menjadi wadah pembentukan
+                            karakter siswa melalui kegiatan yang
+                            melatih kedisiplinan, kemandirian,
+                            kepemimpinan, kerja sama, serta
+                            keterampilan di alam terbuka.
+
+                        </p>
+
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <h6 class="fw-bold">
+                                    Kegiatan
+                                </h6>
+
+                                <ul class="text-muted">
+
+                                    <li>
+                                        Latihan kepramukaan
+                                    </li>
+
+                                    <li>
+                                        Hiking
+                                    </li>
+
+                                    <li>
+                                        Camping
+                                    </li>
+
+                                    <li>
+                                        Packing
+                                    </li>
+
+                                    <li>
+                                        Penghijauan
+                                    </li>
+
+                                    <li>
+                                        Perlombaan
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <h6 class="fw-bold">
+                                    Manfaat
+                                </h6>
+
+                                <ul class="text-muted">
+
+                                    <li>
+                                        Melatih kemandirian
+                                    </li>
+
+                                    <li>
+                                        Meningkatkan disiplin
+                                    </li>
+
+                                    <li>
+                                        Melatih kepemimpinan
+                                    </li>
+
+                                    <li>
+                                        Meningkatkan kerja sama
+                                    </li>
+
+                                    <li>
+                                        Peduli lingkungan
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SISPALA -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoSispala"
+                    >
+
+                        <i class="bi bi-tree-fill text-success me-3"></i>
+
+                        Sispala / Natbinari
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoSispala"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Sispala
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Sispala merupakan kegiatan bagi siswa
+                            yang memiliki ketertarikan terhadap alam
+                            dan kegiatan luar ruangan. Kegiatan ini
+                            melatih keberanian, kemandirian,
+                            kerja sama, dan kepedulian lingkungan.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Hiking
+                            </li>
+
+                            <li>
+                                Kegiatan alam terbuka
+                            </li>
+
+                            <li>
+                                Camping
+                            </li>
+
+                            <li>
+                                Pelatihan survival
+                            </li>
+
+                            <li>
+                                Kegiatan lingkungan
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASKIBRA -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoPaskibra"
+                    >
+
+                        <i class="bi bi-flag-fill text-danger me-3"></i>
+
+                        Paskibra
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoPaskibra"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Paskibra
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Paskibra berfokus pada pembentukan
+                            kedisiplinan, ketepatan gerakan,
+                            kekompakan, tanggung jawab,
+                            dan jiwa kepemimpinan.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Latihan baris-berbaris
+                            </li>
+
+                            <li>
+                                Latihan upacara
+                            </li>
+
+                            <li>
+                                Latihan kekompakan
+                            </li>
+
+                            <li>
+                                Latihan kedisiplinan
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PMR -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoPMR"
+                    >
+
+                        <i class="bi bi-heart-pulse-fill text-danger me-3"></i>
+
+                        PMR
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoPMR"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang PMR
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Palang Merah Remaja menjadi wadah bagi
+                            siswa untuk mempelajari kesehatan,
+                            pertolongan pertama, kepedulian sosial,
+                            dan kegiatan kemanusiaan.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Pertolongan pertama
+                            </li>
+
+                            <li>
+                                Edukasi kesehatan
+                            </li>
+
+                            <li>
+                                Kegiatan sosial
+                            </li>
+
+                            <li>
+                                Simulasi penanganan cedera
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEPAK BOLA -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoSepakbola"
+                    >
+
+                        <i class="bi bi-trophy-fill text-warning me-3"></i>
+
+                        Sepak Bola
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoSepakbola"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Sepak Bola
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Ekstrakurikuler sepak bola membantu
+                            siswa mengembangkan kemampuan teknik
+                            bermain, kebugaran, strategi,
+                            kerja sama, dan sportivitas.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Latihan teknik dasar
+                            </li>
+
+                            <li>
+                                Passing
+                            </li>
+
+                            <li>
+                                Shooting
+                            </li>
+
+                            <li>
+                                Latihan strategi
+                            </li>
+
+                            <li>
+                                Pertandingan
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BULU TANGKIS -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoBadminton"
+                    >
+
+                        <i class="bi bi-circle-fill text-primary me-3"></i>
+
+                        Bulu Tangkis
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoBadminton"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Bulu Tangkis
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Bulu tangkis membantu meningkatkan
+                            kelincahan, konsentrasi, koordinasi
+                            tubuh, kemampuan teknik, dan
+                            sportivitas siswa.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Latihan servis
+                            </li>
+
+                            <li>
+                                Latihan footwork
+                            </li>
+
+                            <li>
+                                Latihan teknik dasar
+                            </li>
+
+                            <li>
+                                Latihan pertandingan
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VOLI -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoVoli"
+                    >
+
+                        <i class="bi bi-people-fill text-success me-3"></i>
+
+                        Bola Voli
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoVoli"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Bola Voli
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Bola voli mengajarkan kerja sama tim,
+                            komunikasi, koordinasi, teknik olahraga,
+                            dan sportivitas.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Passing
+                            </li>
+
+                            <li>
+                                Servis
+                            </li>
+
+                            <li>
+                                Smash
+                            </li>
+
+                            <li>
+                                Blocking
+                            </li>
+
+                            <li>
+                                Pertandingan persahabatan
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PENCAK SILAT -->
+
+            <div class="accordion-item mb-3 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoSilat"
+                    >
+
+                        <i class="bi bi-shield-fill text-danger me-3"></i>
+
+                        Pencak Silat
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoSilat"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Pencak Silat
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Pencak silat mengembangkan kemampuan
+                            bela diri sekaligus membentuk
+                            kedisiplinan, keberanian, konsentrasi,
+                            dan pengendalian diri.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Latihan dasar bela diri
+                            </li>
+
+                            <li>
+                                Latihan jurus
+                            </li>
+
+                            <li>
+                                Latihan fisik
+                            </li>
+
+                            <li>
+                                Latihan tanding
+                            </li>
+
+                            <li>
+                                Persiapan kompetisi
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MARAWIS -->
+
+            <div class="accordion-item shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed fw-bold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#infoMarawis"
+                    >
+
+                        <i class="bi bi-music-note-beamed text-warning me-3"></i>
+
+                        Marawis
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="infoMarawis"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionEkskul"
+                >
+
+                    <div class="accordion-body p-4">
+
+                        <h5 class="fw-bold">
+                            Tentang Marawis
+                        </h5>
+
+                        <p class="text-muted">
+
+                            Marawis menjadi wadah bagi siswa yang
+                            memiliki minat terhadap musik dan seni
+                            Islami. Kegiatan ini mengutamakan
+                            kekompakan, kreativitas, dan kemampuan
+                            bermusik.
+
+                        </p>
+
+
+                        <h6 class="fw-bold">
+                            Kegiatan
+                        </h6>
+
+                        <ul class="text-muted">
+
+                            <li>
+                                Latihan alat musik
+                            </li>
+
+                            <li>
+                                Latihan vokal
+                            </li>
+
+                            <li>
+                                Latihan kekompakan
+                            </li>
+
+                            <li>
+                                Penampilan pada kegiatan sekolah
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERI
+===================================================== -->
+
+<section id="galeri">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="text-warning fw-bold">
+                DOKUMENTASI
+            </span>
+
+            <h2>
+                Galeri Kegiatan
+            </h2>
+
+            <div class="title-line"></div>
+
+            <p>
+                Momen kegiatan dan kebersamaan siswa.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 gallery">
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan olahraga"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan sepak bola"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan alam"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan siswa"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan musik"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kegiatan bela diri"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OUTRO
+===================================================== -->
+
+<section
+    class="outro"
+    id="kontak"
+>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+
+                <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+
+                    SMK BINA PUTRA MANDIRI
+
+                </span>
+
+
+                <h2>
+
+                    Bakatmu adalah
+
+                    <span class="text-warning">
+                        potensi masa depanmu.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Jangan hanya menjadi penonton.
+                    Temukan kegiatan yang kamu sukai,
+                    bergabung bersama teman-teman,
+                    dan kembangkan potensimu melalui
+                    kegiatan ekstrakurikuler.
+
+                </p>
+
+
+                <a
+                    href="#ekskul"
+                    class="btn btn-warning"
+                >
+
+                    Mulai Eksplorasi
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container text-center">
+
+        <h5 class="fw-bold">
+
+            SMK BINA PUTRA
+
+            <span>
+                MANDIRI
+            </span>
+
+        </h5>
+
+
+        <p class="text-secondary mb-0">
+
+            Website Ekstrakurikuler Sekolah
+
+        </p>
+
+
+        <hr class="border-secondary my-4">
+
+
+        <small class="text-secondary">
+
+            © 2026 SMK Bina Putra Mandiri.
+            All Rights Reserved.
+
+        </small>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BOOTSTRAP JAVASCRIPT
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+</html>
